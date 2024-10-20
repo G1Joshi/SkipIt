@@ -58,6 +58,7 @@
       }
     },
     "Hello [%@](https://skip.tools)!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -84,6 +85,9 @@
           }
         }
       }
+    },
+    "Hello %@" : {
+
     },
     "Home" : {
       "localizations" : {

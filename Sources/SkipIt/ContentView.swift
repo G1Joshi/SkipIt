@@ -2,17 +2,16 @@ import SwiftUI
 
 public struct ContentView: View {
     @AppStorage("tab") var tab = Tab.welcome
-    @AppStorage("name") var name = "Skipper"
+    @AppStorage("name") var name = "Skip"
     @State var appearance = ""
     @State var isBeating = false
 
-    public init() {
-    }
+    public init() {}
 
     public var body: some View {
         TabView(selection: $tab) {
             VStack(spacing: 0) {
-                Text("Hello [\(name)](https://skip.tools)!")
+                Text("Hello \(name)")
                     .padding()
                 Image(systemName: "heart.fill")
                     .foregroundStyle(.red)
@@ -26,7 +25,7 @@ public struct ContentView: View {
 
             NavigationStack {
                 List {
-                    ForEach(1..<1_000) { i in
+                    ForEach(1 ..< 1_000) { i in
                         NavigationLink("Item \(i)", value: i)
                     }
                 }
@@ -50,13 +49,13 @@ public struct ContentView: View {
                     }
                     HStack {
                         #if SKIP
-                        ComposeView { ctx in // Mix in Compose code!
+                        ComposeView { ctx in
                             androidx.compose.material3.Text("💚", modifier: ctx.modifier)
                         }
                         #else
                         Text(verbatim: "💙")
                         #endif
-                        Text("Powered by \(androidSDK != nil ? "Jetpack Compose" : "SwiftUI")")
+                        Text("Powered by \(androidSDK != nil ? "Compose" : "SwiftUI")")
                     }
                     .foregroundStyle(.gray)
                 }
@@ -69,6 +68,6 @@ public struct ContentView: View {
     }
 }
 
-enum Tab : String, Hashable {
+enum Tab: String, Hashable {
     case welcome, home, settings
 }

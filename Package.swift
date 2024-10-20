@@ -1,9 +1,4 @@
-// swift-tools-version: 5.9
-// This is a Skip (https://skip.tools) package,
-// containing a Swift Package Manager project
-// that will use the Skip build plugin to transpile the
-// Swift Package, Sources, and Tests into an
-// Android Gradle Project with Kotlin sources and JUnit tests.
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
@@ -15,7 +10,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://source.skip.tools/skip.git", from: "1.1.12"),
-        .package(url: "https://source.skip.tools/skip-ui.git", from: "1.0.0")
+        .package(url: "https://source.skip.tools/skip-ui.git", from: "1.0.0"),
     ],
     targets: [
         .target(name: "SkipIt", dependencies: [.product(name: "SkipUI", package: "skip-ui")], resources: [.process("Resources")], plugins: [.plugin(name: "skipstone", package: "skip")]),
